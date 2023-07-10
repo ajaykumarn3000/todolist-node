@@ -142,20 +142,6 @@ app.get("/about", function (req, res) {
   res.render("about");
 });
 
-// -------------------TEST---------------------------
-app.get("/ajaykumartest/:testcode", function (req, res) {
-  console.log("GET");
-  console.log(req.params.testcode);
-  res.redirect('/');
-});
-app.post("/ajaykumartest/:testcode", function (req, res) {
-  console.log("POST");
-  console.log(req.params.testcode);
-  console.log(req.body);
-  res.redirect('/');
-});
-// ------------------TEST------------------------------
-
 app.listen(3000, function () {
   console.log("Server started on port 3000");
 });
