@@ -144,13 +144,15 @@ app.get("/about", function (req, res) {
 
 // -------------------TEST---------------------------
 app.get("/ajaykumartest/:testcode", function (req, res) {
-  confirm.log("GET")
+  console.log("GET");
   console.log(req.params.testcode);
+  res.redirect('/');
 });
 app.post("/ajaykumartest/:testcode", function (req, res) {
-  console.log("POST")
+  console.log("POST");
   console.log(req.params.testcode);
   console.log(req.body);
+  res.redirect('/');
 });
 // ------------------TEST------------------------------
 
