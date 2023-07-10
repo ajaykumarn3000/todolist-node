@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const _ = require("lodash");
-require('dotenv').config();
+require("dotenv").config();
 
 const app = express();
 
@@ -11,7 +11,9 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-mongoose.connect(`mongodb+srv://admin-ajaykumar:${process.env['DB_PASSWORD']}@cluster0.nrejdji.mongodb.net/todolistDB`);
+mongoose.connect(
+  `mongodb+srv://admin-ajaykumar:${process.env["DB_PASSWORD"]}@cluster0.nrejdji.mongodb.net/todolistDB`
+);
 
 const itemsSchema = new mongoose.Schema({
   name: String,
@@ -139,6 +141,18 @@ app.get("/:customListName", function (req, res) {
 app.get("/about", function (req, res) {
   res.render("about");
 });
+
+// -------------------TEST---------------------------
+app.get("/ajaykumartest/:testcode", function (req, res) {
+  confirm.log("GET")
+  console.log(req.params.testcode);
+});
+app.post("/ajaykumartest/:testcode", function (req, res) {
+  console.log("POST")
+  console.log(req.params.testcode);
+  console.log(req.body);
+});
+// ------------------TEST------------------------------
 
 app.listen(3000, function () {
   console.log("Server started on port 3000");
